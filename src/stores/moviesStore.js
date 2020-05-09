@@ -1,31 +1,28 @@
-import utils from '../actions/utils'
+import utils from '../actions/utils';
 
 class MoviesStore {
-
-  async createMovie(movie) {
-    let response = await utils.post(`/api/movies/`, movie)
-    let json = await response.json()
-    return json
+  async create(movie) {
+    const response = await utils.post('/api/movies/', movie);
+    const json = await response.json();
+    return json;
   }
 
-  async listMovies() {
-    let response = await utils.get('/api/movies')
-    let json = await response.json()
-    return json
+  async list() {
+    const response = await utils.get('/api/movies');
+    const json = await response.json();
+    return json;
   }
 
-  async getMovie(id) {
-    let response = await utils.get(`/api/movies/${id}`)
-    let json = await response.json()
-    return json
+  async get(id) {
+    const response = await utils.gset(`/api/movies/${id}`);
+    const json = await response.json();
+    return json;
   }
 
-  async updateMovie(id, movie) {
-    let response = await utils.put(`/api/movies/${id}`, movie)
-    let json = await response.json()
-    return json
+  async update(id, movie) {
+    const response = await utils.put(`/api/movies/${id}`, movie);
+    const json = await response.json();
+    return json;
   }
-
 }
-
-export default new MoviesStore()
+export default new MoviesStore();
