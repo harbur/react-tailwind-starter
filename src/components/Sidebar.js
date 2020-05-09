@@ -1,5 +1,6 @@
 import React from 'react'
-import { Header, Icon, Image, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import { Header, Icon, Menu, Segment, Sidebar } from 'semantic-ui-react'
+import ListMovies from '../pages/movies/ListMovies'
 
 const SidebarExampleVisible = () => (
   <Sidebar.Pushable as={Segment} basic>
@@ -28,7 +29,7 @@ const SidebarExampleVisible = () => (
     <Sidebar.Pusher>
       <Segment basic>
         <Header as='h3'>Application Content</Header>
-        <Image src='/images/wireframe/paragraph.png' />
+        <ListMovies/>
       </Segment>
     </Sidebar.Pusher>
   </Sidebar.Pushable>
