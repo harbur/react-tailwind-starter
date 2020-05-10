@@ -24,5 +24,9 @@ class MoviesStore {
     const json = await response.json();
     return json;
   }
+  async delete(id) {
+  const response = await utils.delete(`/api/movies/${id}`);
+    return response.ok;
+  }
 }
 export default new MoviesStore();

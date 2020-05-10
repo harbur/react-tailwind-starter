@@ -1,12 +1,13 @@
 import { useObserver } from 'mobx-react';
 import React from 'react';
-import { Form } from 'semantic-ui-react';
-import { useStores } from '../../hooks/use-stores';
-import SubmitButtons from './buttons/SubmitButtons';
-import NameField from './fields/NameField';
+import { NavLink, useParams } from 'react-router-dom';
+import { Button, Form, Icon, Header, Segment, Container, HeaderSubheader } from 'semantic-ui-react';
 import history from '../../history/history';
+import { useStores } from '../../hooks/use-stores';
+import NameField from './fields/NameField';
 
-export default function ViewMovie({ match: { params: { id } } }) {
+export default function ViewMovie() {
+  let { id } = useParams()
   const { moviesStore } = useStores();
   const [name, updateName] = React.useState("");
   const [loading, updateLoading] = React.useState(false)
@@ -18,6 +19,11 @@ export default function ViewMovie({ match: { params: { id } } }) {
     }
     fetchMovie()
   }, [])
+
+  async function remove(id) {
+    await moviesStore.delete(id)
+    history.push("/movies")
+  }
 
   async function submit() {
     updateLoading(true)
@@ -37,9 +43,19 @@ export default function ViewMovie({ match: { params: { id } } }) {
   }
 
   return useObserver(() => (
-    <Form>
-      <NameField value={name} onChange={updateName} />
-      <SubmitButtons cancelURL='/movies' disabled={false} loading={loading} onClick={submit} />
-    </Form>
+    <>
+      <Header as='h3'>View Movie</Header>
+      <Container textAlign="left">
+        <Header>Name: {name}</Header>
+
+        <Button as={NavLink} to={`/movies`}>Back</Button>
+        <Button as={NavLink} to={`/edit/movie/${id}`}>Edit</Button>
+        <Button color="red" onClick={() => remove(id)}>Delete
+            <Icon
+            // @ts-ignore
+            name='right trash alternate outline' />
+        </Button>
+      </Container>
+    </>
   ));
 }
