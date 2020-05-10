@@ -1,4 +1,4 @@
-import { useObserver } from 'mobx-react';
+import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 import { Form, Container } from 'semantic-ui-react';
 import { useStores } from '../../hooks/use-stores';

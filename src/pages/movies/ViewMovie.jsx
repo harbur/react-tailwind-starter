@@ -1,4 +1,4 @@
-import { useObserver } from 'mobx-react';
+import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { Button, Container, Header, Icon } from 'semantic-ui-react';
