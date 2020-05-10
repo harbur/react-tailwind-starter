@@ -6,19 +6,19 @@ import history from '../../history/history';
 import { useStores } from '../../hooks/use-stores';
 
 export default function ViewMovie() {
-  let { id } = useParams()
+  let { id } = useParams<{id: string}>()
   const { moviesStore } = useStores();
   const [name, updateName] = React.useState("");
 
   React.useEffect(() => {
     async function fetchMovie() {
-      const response = await moviesStore.get(id)
+      const response = await moviesStore.get(Number(id))
       updateName(response.name)
     }
     fetchMovie()
   }, [id, moviesStore])
 
-  async function remove(id) {
+  async function remove(id: number) {
     await moviesStore.delete(id)
     history.push("/movies")
   }
@@ -31,7 +31,7 @@ export default function ViewMovie() {
 
         <Button as={NavLink} to={`/movies`}>Back</Button>
         <Button as={NavLink} to={`/edit/movie/${id}`}>Edit</Button>
-        <Button color="red" onClick={() => remove(id)}>Delete
+        <Button color="red" onClick={() => remove(Number(id))}>Delete
             <Icon
             // @ts-ignore
             name='right trash alternate outline' />

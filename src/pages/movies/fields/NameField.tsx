@@ -2,16 +2,21 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 
-export default function NameField({ value, onChange }) {
+interface Props {
+  value: string,
+  onChange(value:string): void;
+}
+
+export default function NameField(props: Props) {
   return (
     <Form.Input
       required
       autoFocus
       name="name"
       label="Name"
-      value={value}
+      value={props.value}
       placeholder="Name"
-      onChange={e => onChange(e.target.value)}
+      onChange={e => props.onChange(e.target.value)}
     />
   )
 }

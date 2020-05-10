@@ -36,13 +36,12 @@ class Utils {
       return response
     }
   
-    async delete(uri: string, body: object) {
+    async delete(uri: string) {
       return await fetch(uri, {
         headers: {
           'Content-Type': 'application/json',
         },
         method: 'DELETE',
-        body: JSON.stringify(body),
       })
     }
   }

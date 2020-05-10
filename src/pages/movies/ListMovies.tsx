@@ -3,6 +3,7 @@ import { queryCache, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { Button, Dropdown, Header, Icon, Table } from 'semantic-ui-react';
 import { useStores } from '../../hooks/use-stores';
+import Movie from '../../models/movie';
 
 export default function ListMovies() {
   const { moviesStore } = useStores();
@@ -10,7 +11,7 @@ export default function ListMovies() {
     moviesStore.list()
   );
 
-  async function remove(id) {
+  async function remove(id: Number) {
     await moviesStore.delete(id)
     queryCache.refetchQueries("movies")
   }
@@ -31,7 +32,7 @@ export default function ListMovies() {
         </Table.Header>
 
         <Table.Body>
-          {data.map((movie) => (
+          {data.map((movie: Movie) => (
             <Table.Row key={movie.ID}>
               <Table.Cell>{movie.ID}</Table.Cell>
               <Table.Cell>{movie.name}</Table.Cell>
