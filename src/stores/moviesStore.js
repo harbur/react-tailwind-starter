@@ -2,7 +2,7 @@ import utils from '../actions/utils';
 
 class MoviesStore {
   async create(movie) {
-    const response = await utils.post('/api/movies/', movie);
+    const response = await utils.post('/api/movies', movie);
     const json = await response.json();
     return json;
   }
@@ -14,7 +14,7 @@ class MoviesStore {
   }
 
   async get(id) {
-    const response = await utils.gset(`/api/movies/${id}`);
+    const response = await utils.get(`/api/movies/${id}`);
     const json = await response.json();
     return json;
   }
