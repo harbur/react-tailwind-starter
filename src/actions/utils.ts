@@ -1,5 +1,5 @@
 class Utils {
-    async get(uri) {
+    async get(uri: string) {
       let response = await fetch(uri, {
       })
       if (!response.ok) {
@@ -8,7 +8,7 @@ class Utils {
       return response
     }
   
-    async post(uri, body) {
+    async post(uri: string, body: object) {
       let response = await fetch(uri, {
         headers: {
           'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ class Utils {
       return response
     }
   
-    async put(uri, body) {
+    async put(uri: string, body: object) {
       let response = await fetch(uri, {
         headers: {
           'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ class Utils {
       return response
     }
   
-    async delete(uri, body) {
+    async delete(uri: string, body: object) {
       return await fetch(uri, {
         headers: {
           'Content-Type': 'application/json',
