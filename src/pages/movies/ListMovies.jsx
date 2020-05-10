@@ -1,7 +1,7 @@
 import React from 'react';
-import { useQuery, queryCache } from 'react-query';
+import { queryCache, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';
-import { Button, Dropdown, Header, Icon, Table, Divider } from 'semantic-ui-react';
+import { Button, Dropdown, Header, Icon, Table } from 'semantic-ui-react';
 import { useStores } from '../../hooks/use-stores';
 
 export default function ListMovies() {

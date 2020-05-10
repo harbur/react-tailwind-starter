@@ -19,8 +19,7 @@ export default function EditMovie() {
       updateName(response.name)
     }
     fetchMovie()
-  }, [])
-
+  }, [id, moviesStore])
 
   async function submit() {
     updateLoading(true)

@@ -1,16 +1,14 @@
 import { useObserver } from 'mobx-react';
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
-import { Button, Form, Icon, Header, Segment, Container, HeaderSubheader } from 'semantic-ui-react';
+import { Button, Container, Header, Icon } from 'semantic-ui-react';
 import history from '../../history/history';
 import { useStores } from '../../hooks/use-stores';
-import NameField from './fields/NameField';
 
 export default function ViewMovie() {
   let { id } = useParams()
   const { moviesStore } = useStores();
   const [name, updateName] = React.useState("");
-  const [loading, updateLoading] = React.useState(false)
 
   React.useEffect(() => {
     async function fetchMovie() {
@@ -18,28 +16,11 @@ export default function ViewMovie() {
       updateName(response.name)
     }
     fetchMovie()
-  }, [])
+  }, [id, moviesStore])
 
   async function remove(id) {
     await moviesStore.delete(id)
     history.push("/movies")
-  }
-
-  async function submit() {
-    updateLoading(true)
-    try {
-      const body = { name }
-      await moviesStore.create(body)
-      history.push('/movies')
-    } catch (error) {
-      //   updateError({
-      //     ok: false,
-      //     reason: error.reason,
-      //     message: error.message,
-      //   })
-    } finally {
-      updateLoading(false)
-    }
   }
 
   return useObserver(() => (

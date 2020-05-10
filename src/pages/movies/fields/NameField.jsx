@@ -1,6 +1,6 @@
+import PropTypes from 'prop-types'
 import React from 'react'
 import { Form } from 'semantic-ui-react'
-import PropTypes from 'prop-types'
 
 export default function NameField({ value, onChange }) {
   return (
