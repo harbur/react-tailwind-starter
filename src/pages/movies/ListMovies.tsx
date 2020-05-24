@@ -11,7 +11,7 @@ export default function ListMovies() {
     moviesStore.list()
   );
 
-  async function remove(id: Number) {
+  async function remove(id: number) {
     await moviesStore.delete(id)
     queryCache.refetchQueries("movies")
   }
@@ -50,7 +50,7 @@ export default function ListMovies() {
                         // @ts-ignore
                         name='right edit outline' />
                       </Button>
-                      <Button className="square" icon labelPosition='right' onClick={() => remove(movie.ID)}>
+                      <Button className="square" icon labelPosition='right' onClick={() => remove(movie.ID as number)}>
                         Delete
                         <Icon
                         // @ts-ignore

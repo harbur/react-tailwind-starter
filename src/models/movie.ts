@@ -1,4 +1,4 @@
 export default interface Movie {
-    ID: number,
+    ID: number | undefined,
     name: string,
 }

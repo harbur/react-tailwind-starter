@@ -14,7 +14,7 @@ export default function CreateMovie() {
     async function submit() {
         updateLoading(true)
         try {
-          const body = {name}
+          const body = {name, ID: undefined }
           await moviesStore.create(body)
           history.push('/movies')
         } catch (error) {
