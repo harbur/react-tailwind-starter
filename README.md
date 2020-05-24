@@ -1,8 +1,8 @@
-# React CRA Javascript Starter
+# React CRA Starter
 
 This project is a [Starter pack] using the following technologies:
 
-* Language: [Javascript](https://en.wikipedia.org/wiki/JavaScript)
+* Language: [Typescript](https://www.typescriptlang.org/)
 * Web Framework: [React](https://reactjs.org/)
 * Boostrapped by: [Create React App](https://github.com/facebook/create-react-app)
 * UI Framework: [Semantic UI](https://semantic-ui.com/)
