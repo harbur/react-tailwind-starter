@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 export default function Shell(props: {children: any}) {
   const [showProfile, setShowProfile] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
-  console.log(showMenu)
   return (
     <div>
       <nav className="bg-gray-800">
@@ -17,7 +16,7 @@ export default function Shell(props: {children: any}) {
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline">
-                  <NavLink to='/home' activeClassName="text-white bg-gray-900" className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Home</NavLink>
+                  <NavLink to='/' activeClassName="text-white bg-gray-900" className="px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Home</NavLink>
                   <NavLink to='/movies' activeClassName="text-white bg-gray-900"  className="ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300 hover:text-white hover:bg-gray-700 focus:outline-none focus:text-white focus:bg-gray-700">Movies</NavLink>
                 </div>
               </div>
