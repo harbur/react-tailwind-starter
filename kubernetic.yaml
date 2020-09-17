@@ -1,0 +1,10 @@
+images:
+  - name: woven-computing-234012/react-tailwind-starter
+    path: Dockerfile
+    context: .
+    tags:
+      - ${GIT_BRANCH}
+rollouts:
+  - resource: deployment/react-tailwind-starter
+    namespace: starters-pro
+    branch: master
