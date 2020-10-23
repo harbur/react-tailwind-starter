@@ -1,5 +1,5 @@
 import React from 'react';
-import moviesStore from '../stores/moviesStore';
+import moviesStore from '../actions/movies';
 
 const storesContext = React.createContext({
   moviesStore,
