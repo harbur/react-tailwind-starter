@@ -10,6 +10,7 @@ import ListMovies from './pages/movies/ListMovies';
 import ViewMovie from './pages/movies/ViewMovie';
 import CreateMovie from './pages/movies/CreateMovie';
 import EditMovie from './pages/movies/EditMovie';
+import Gradient from './components/Gradient';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Shell>
       <Segment basic>
         <Switch>
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={Gradient} />
           <Route exact path="/movies" component={ListMovies} />
           <Route exact path="/movies/:id" component={ViewMovie} />
           <Route exact path="/create/movie" component={CreateMovie} />
