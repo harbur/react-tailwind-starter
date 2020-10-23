@@ -51,7 +51,7 @@ async function put<T>(uri: string, body?: T, params?: any) {
   return await response.json() as Promise<T>
 }
 
-async function remove<T>(uri: string, body?: any, params?: any) {
+async function remove(uri: string, body?: any, params?: any) {
   uri = appendParams(uri, params)
   let response = await fetch(uri, {
     headers: {
@@ -60,7 +60,7 @@ async function remove<T>(uri: string, body?: any, params?: any) {
     method: 'DELETE',
     body: JSON.stringify(body),
   })
-  return await response.json() as Promise<T>
+  return await response
 }
 
 export default { get, post, put, remove }

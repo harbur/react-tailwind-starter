@@ -6,26 +6,27 @@ import SubmitButtons from './buttons/SubmitButtons';
 import NameField from './fields/NameField';
 import history from '../../history/history';
 import { useParams } from 'react-router-dom';
+import Params from 'models/params'
+import moviesActions from 'actions/movies-actions';
 
 export default function EditMovie() {
-  let { id } = useParams()
+  let { id } = useParams<Params>()
   const { moviesStore } = useStores();
   const [name, updateName] = React.useState("");
   const [loading, updateLoading] = React.useState(false)
 
+  const { data } = moviesStore.useMovie(+id)
   React.useEffect(() => {
-    async function fetchMovie() {
-      const response = await moviesStore.get(id)
-      updateName(response.name)
+    if (data != undefined) {
+      updateName(data.name)
     }
-    fetchMovie()
-  }, [id, moviesStore])
+  }, [data])
 
   async function submit() {
     updateLoading(true)
     try {
-      const body = { ID: Number(id), name }
-      await moviesStore.update(id, body)
+      const body = { ID: +id, name }
+      await moviesActions.update(+id, body)
       history.push('/movies')
     } catch (error) {
       //   updateError({

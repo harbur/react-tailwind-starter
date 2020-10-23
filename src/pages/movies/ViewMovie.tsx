@@ -1,4 +1,4 @@
-import { useObserver } from 'mobx-react-lite';
+import moviesActions from 'actions/movies-actions';
 import React from 'react';
 import { NavLink, useParams } from 'react-router-dom';
 import { Button, Container, Header, Icon } from 'semantic-ui-react';
@@ -6,28 +6,20 @@ import history from '../../history/history';
 import { useStores } from '../../hooks/use-stores';
 
 export default function ViewMovie() {
-  let { id } = useParams<{id: string}>()
+  let { id } = useParams<{ id: string }>()
   const { moviesStore } = useStores();
-  const [name, updateName] = React.useState("");
-
-  React.useEffect(() => {
-    async function fetchMovie() {
-      const response = await moviesStore.get(Number(id))
-      updateName(response.name)
-    }
-    fetchMovie()
-  }, [id, moviesStore])
+  const { data } = moviesStore.useMovie(+id)
 
   async function remove(id: number) {
-    await moviesStore.delete(id)
+    await moviesActions.remove(id)
     history.push("/movies")
   }
 
-  return useObserver(() => (
+  return (
     <>
       <Header as='h3'>View Movie</Header>
       <Container textAlign="left">
-        <Header>Name: {name}</Header>
+        <Header>Name: {data?.name}</Header>
 
         <Button as={NavLink} to={`/movies`}>Back</Button>
         <Button as={NavLink} to={`/edit/movie/${id}`}>Edit</Button>
@@ -38,5 +30,5 @@ export default function ViewMovie() {
         </Button>
       </Container>
     </>
-  ));
+  )
 }

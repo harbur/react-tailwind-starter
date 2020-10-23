@@ -10,7 +10,7 @@ async function list() {
 }
 
 async function get(id: number) {
-  return await utils.get<Movie[]>(`/api/movies/${id}`);
+  return await utils.get<Movie>(`/api/movies/${id}`);
 }
 
 async function update(id: number, movie: Movie) {

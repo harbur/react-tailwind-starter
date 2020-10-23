@@ -1,3 +1,4 @@
+import moviesActions from 'actions/movies-actions';
 import React from 'react';
 import { queryCache, useQuery } from 'react-query';
 import { NavLink } from 'react-router-dom';
@@ -7,12 +8,10 @@ import Movie from '../../models/movie';
 
 export default function ListMovies() {
   const { moviesStore } = useStores();
-  const { data, status } = useQuery("movies", () =>
-    moviesStore.list()
-  );
+  const { data, status } = moviesStore.useMovies();
 
   async function remove(id: number) {
-    await moviesStore.delete(id)
+    await moviesActions.remove(id)
     queryCache.refetchQueries("movies")
   }
   if (status === "loading") return <p>Loading...</p>;
@@ -32,7 +31,7 @@ export default function ListMovies() {
         </Table.Header>
 
         <Table.Body>
-          {data.map((movie: Movie) => (
+          {data && data.map((movie: Movie) => (
             <Table.Row key={movie.ID}>
               <Table.Cell>{movie.ID}</Table.Cell>
               <Table.Cell>{movie.name}</Table.Cell>

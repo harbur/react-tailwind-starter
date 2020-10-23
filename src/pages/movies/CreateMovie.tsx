@@ -1,13 +1,12 @@
+import moviesActions from 'actions/movies-actions';
 import { useObserver } from 'mobx-react-lite';
 import React from 'react';
 import { Form } from 'semantic-ui-react';
-import { useStores } from '../../hooks/use-stores';
+import history from '../../history/history';
 import SubmitButtons from './buttons/SubmitButtons';
 import NameField from './fields/NameField';
-import history from '../../history/history';
 
 export default function CreateMovie() {
-    const { moviesStore } = useStores();
     const [name, updateName] = React.useState("");
     const [loading, updateLoading] = React.useState(false)
 
@@ -15,7 +14,7 @@ export default function CreateMovie() {
         updateLoading(true)
         try {
           const body = {name, ID: undefined }
-          await moviesStore.create(body)
+          await moviesActions.create(body)
           history.push('/movies')
         } catch (error) {
         //   updateError({
