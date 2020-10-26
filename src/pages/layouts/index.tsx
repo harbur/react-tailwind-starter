@@ -1,10 +1,10 @@
 import React from 'react';
-import FullScreen from './FullScreen';
+import FullScreenWithHeader from './FullScreenWithHeader';
 
 export default function Layouts() {
   return (
     <>
-      <FullScreen />
+      <FullScreenWithHeader />
     </>
   )
 }

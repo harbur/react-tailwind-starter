@@ -1,7 +1,7 @@
 import { MultiLines } from 'components/MultiLines';
 import React, { useEffect, useRef } from 'react';
 
-export default function FullScreen() {
+export default function FullScreenWithHeader() {
   const messagesEndRef = useRef<any>(null)
   useEffect(() => {
     const scrollToBottom = () => {
@@ -13,14 +13,15 @@ export default function FullScreen() {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-col bg-red-500 h-screen">
+    <div className="flex-auto">
+      {/* <div className="flex flex-col bg-red-500"> */}
+        {/* <div className="placeholder text-xl">Page 1</div>
         <div className="placeholder flex-none">1</div>
-        {/* <div className="placeholder flex-auto overflow-auto">
+        <div className="placeholder flex-auto overflow-auto"> */}
           <MultiLines />
-        </div> */}
+        {/* </div> */}
         <div ref={messagesEndRef} />
-      </div>
+      {/* </div> */}
     </div>
   )
 }

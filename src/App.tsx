@@ -1,3 +1,4 @@
+import Layouts from 'pages/layouts';
 import React from 'react';
 import { Route, Router, Switch } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
@@ -22,6 +23,7 @@ function App() {
             <Route exact path="/movies/:id" component={ViewMovie} />
             <Route exact path="/create/movie" component={CreateMovie} />
             <Route exact path="/edit/movie/:id" component={EditMovie} />
+            <Route path="/layouts" component={Layouts} />
           </Switch>
         </Segment>
 

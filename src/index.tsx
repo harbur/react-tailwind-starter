@@ -11,7 +11,6 @@ ReactDOM.render(
   <React.StrictMode>
     <Router history={history}>
       <Switch>
-        <Route path="/layouts" component={Layouts} />
         <App />
       </Switch>
     </Router >
