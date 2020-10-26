@@ -1,6 +1,6 @@
 import moviesActions from 'actions/movies-actions';
 import React from 'react';
-import { queryCache, useQuery } from 'react-query';
+import { queryCache } from 'react-query';
 import { NavLink } from 'react-router-dom';
 import { Button, Dropdown, Header, Icon, Table } from 'semantic-ui-react';
 import { useStores } from '../../hooks/use-stores';

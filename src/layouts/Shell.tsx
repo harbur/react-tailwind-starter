@@ -18,6 +18,7 @@ export default function Shell(props: {children: any}) {
                 <div className="ml-10 flex items-baseline">
                   <NavLink exact to='/' className="nav-btn">Home</NavLink>
                   <NavLink to='/movies' className="nav-btn">Movies</NavLink>
+                  <NavLink to='/layouts' className="nav-btn">Layouts</NavLink>
                 </div>
               </div>
             </div>

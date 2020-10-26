@@ -16,3 +16,7 @@
 .nav-btn:focus {
   @apply outline-none text-white bg-gray-700;
 }
+
+.placeholder {
+  @apply text-gray-700 text-center bg-gray-400 px-4 py-2 m-2
+}

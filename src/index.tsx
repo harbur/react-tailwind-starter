@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './assets/main.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Route, Router, Switch } from 'react-router-dom';
+import history from 'history/history';
+import Layouts from 'pages/layouts';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <Router history={history}>
+      <Switch>
+        <Route path="/layouts" component={Layouts} />
+        <App />
+      </Switch>
+    </Router >
+  </React.StrictMode >,
   document.getElementById('root')
 );
 
