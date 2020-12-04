@@ -7,7 +7,7 @@ export function MultiLines() {
   return (
     <>
       {rows.map((i) => (
-        <div className="placeholder">{i}</div>
+        <div key={i} className="placeholder">{i}</div>
       ))
       }
     </>
