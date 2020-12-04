@@ -1,4 +1,3 @@
-import Params from "./params"
 
 type QueryKeys = [
   "movies",

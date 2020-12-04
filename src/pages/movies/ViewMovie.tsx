@@ -1,13 +1,12 @@
-import moviesActions from 'actions/movies-actions';
+import moviesActions from 'actions/moviesActions';
 import React from 'react';
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink, useHistory, useParams } from 'react-router-dom';
 import { Button, Container, Header, Icon } from 'semantic-ui-react';
-import history from '../../history/history';
-import { useStores } from '../../hooks/use-stores';
+import moviesStore from 'stores/moviesStore';
 
 export default function ViewMovie() {
   let { id } = useParams<{ id: string }>()
-  const { moviesStore } = useStores();
+  const history = useHistory()
   const { data } = moviesStore.useMovie(+id)
 
   async function remove(id: number) {
@@ -22,7 +21,7 @@ export default function ViewMovie() {
         <Header>Name: {data?.name}</Header>
 
         <Button as={NavLink} to={`/movies`}>Back</Button>
-        <Button as={NavLink} to={`/edit/movie/${id}`}>Edit</Button>
+        <Button as={NavLink} to={`/movies/${id}/edit`}>Edit</Button>
         <Button color="red" onClick={() => remove(Number(id))}>Delete
             <Icon
             // @ts-ignore

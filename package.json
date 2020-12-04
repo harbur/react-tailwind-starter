@@ -1,5 +1,5 @@
 {
-  "name": "react-starter",
+  "name": "react-tailwind-starter-v3",
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:8080",
@@ -26,7 +26,7 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.1",
     "tailwindcss": "^2.0.1",
-    "typescript": "~4.1.2",
+    "typescript": "~4.0.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

@@ -1,14 +1,5 @@
-# Actions
-
-Actions contain functions that directly call external APIs and receive responses. The responses are returned typed as a Promise (e.g. `Promise<Movie>`).
-
-## MoviesActions
-
-For the Movies example we implement a simple CRUD API in the backend which we can call from the frontend through the functions in `src/actions/moviesActions.ts`:
-
-```ts
 import Movie from 'models/movies';
-import restClient from 'utils/rest-client';
+import restClient from 'utils/restClient';
 
 async function create(movie: Movie) {
   return await restClient.post<Movie[]>('/api/movies', movie);
@@ -32,6 +23,3 @@ async function remove(id: number) {
 
 const moviesActions = { create, list, get, update, remove }
 export default moviesActions
-```
-
-The `utils` contains some simple functions for doing REST API calls with generics.

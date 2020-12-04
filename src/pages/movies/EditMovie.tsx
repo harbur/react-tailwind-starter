@@ -1,22 +1,21 @@
-import moviesActions from 'actions/movies-actions';
+import moviesActions from 'actions/moviesActions';
 import Params from 'models/params';
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Container, Form } from 'semantic-ui-react';
-import history from '../../history/history';
-import { useStores } from '../../hooks/use-stores';
+import moviesStore from 'stores/moviesStore';
 import SubmitButtons from './buttons/SubmitButtons';
 import NameField from './fields/NameField';
 
 export default function EditMovie() {
   let { id } = useParams<Params>()
-  const { moviesStore } = useStores();
   const [name, updateName] = React.useState("");
   const [loading, updateLoading] = React.useState(false)
-
+  const history = useHistory()
+  
   const { data } = moviesStore.useMovie(+id)
   React.useEffect(() => {
-    if (data != undefined) {
+    if (data !== undefined) {
       updateName(data.name)
     }
   }, [data])

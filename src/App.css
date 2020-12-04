@@ -1,6 +1,5 @@
 .App {
   text-align: center;
-  height: 100%;
 }
 
 .App-logo {
@@ -37,11 +36,3 @@
     transform: rotate(360deg);
   }
 }
-
-.square {
-  border-top-left-radius: 0px !important;
-  border-bottom-left-radius: 0px !important;
-  border-top-right-radius: 0px !important;
-  border-bottom-right-radius: 0px !important;
-}
-

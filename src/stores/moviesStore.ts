@@ -1,7 +1,6 @@
-import moviesActions from 'actions/movies-actions';
-import GenericError from 'models/generic-error';
-import Movie from 'models/movie';
-import QueryKeys from 'models/query-keys';
+import moviesActions from 'actions/moviesActions';
+import Movie from 'models/movies';
+import QueryKeys from 'models/queryKeys';
 import { useQuery } from 'react-query';
 
 /**
@@ -9,7 +8,7 @@ import { useQuery } from 'react-query';
  */
 function useMovies() {
   const queryKey: QueryKeys = ["movies"]
-  return useQuery<Movie[], GenericError>(queryKey, () => moviesActions.list());
+  return useQuery<Movie[], Error>(queryKey, () => moviesActions.list());
 }
 
 /**
@@ -23,4 +22,5 @@ function useMovie(id: number) {
   return useQuery<Movie, Error>(enabled && queryKey, () => moviesActions.get(id), { enabled });
 }
 
-export default { useMovies, useMovie }
+const moviesStore = { useMovies, useMovie }
+export default moviesStore

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Transition from './Transition';
 import { NavLink } from 'react-router-dom';
-import { MultiLines } from 'components/MultiLines';
+import Transition from './Transition';
 
-export default function Shell(props: { children: any }) {
+interface Props { children: any }
+function Shell({ children }: Props) {
   const [showProfile, setShowProfile] = useState(false)
   const [showMenu, setShowMenu] = useState(false)
   return (
@@ -19,7 +19,6 @@ export default function Shell(props: { children: any }) {
                 <div className="ml-10 flex items-baseline">
                   <NavLink exact to='/' className="nav-btn">Home</NavLink>
                   <NavLink to='/movies' className="nav-btn">Movies</NavLink>
-                  <NavLink to='/layouts' className="nav-btn">Layouts</NavLink>
                 </div>
               </div>
             </div>
@@ -99,19 +98,11 @@ export default function Shell(props: { children: any }) {
         </div>
       </nav>
 
-      <header className="bg-white shadow">
-        <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold leading-tight text-gray-900">
-            Dashboard
-      </h1>
-        </div>
-      </header>
-      <main className="flex-auto flex flex-col overflow-auto bg-purple-500">
-        <div className="">
-          <MultiLines />
-        </div>
-      </main>
-      <div className="p-2"></div>
+      <div className="p-2">
+        {children}
+      </div>
     </div>
   )
 }
+
+export default Shell

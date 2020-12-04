@@ -1,6 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button } from 'semantic-ui-react'
+import { NavLink } from 'react-router-dom'
 
 interface Props {
   cancelURL: string;
@@ -11,9 +10,10 @@ interface Props {
 
 export default function SubmitButtons(props: Props) {
   return (
-    <div className="actions">
-      <Button content="Cancel" as={Link} to={props.cancelURL} />
-      <Button content="Submit" disabled={props.disabled} positive loading={props.loading} onClick={props.onClick} />
-    </div>
+    <div className="flex gap-x-2">
+      <NavLink to={props.cancelURL} className="p-3 px-5 secondary-btn">Cancel</NavLink>
+      <NavLink to={props.cancelURL} className="p-3 px-5 secondary-btn">Cancel</NavLink>
+      <button className="p-3 px-5 primary-btn" onClick={props.onClick}>Submit</button>
+    </div >
   )
 }

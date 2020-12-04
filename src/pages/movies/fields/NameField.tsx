@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 
@@ -20,8 +19,3 @@ export default function NameField(props: Props) {
     />
   )
 }
-NameField.propTypes = {
-    value: PropTypes.string,
-    onChange: PropTypes.func,
-  }
-  
