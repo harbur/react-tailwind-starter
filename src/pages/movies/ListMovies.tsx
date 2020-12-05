@@ -1,4 +1,5 @@
 import moviesActions from 'actions/moviesActions';
+import Card from 'cards/Card';
 import Movie from 'models/movies';
 import React from 'react';
 import { queryCache } from 'react-query';
@@ -18,8 +19,9 @@ export default function ListMovies() {
 
   return (
     <>
-      <div className="text-xl text-gray-800 font-bold tracking-wider">List Movies</div>
+      <h1>List Movies</h1>
 
+    <Card>
       <div className="py-4">
         <table className="table w-full">
           <thead className="bg-gray-200 table-header-group col-span-full w-full">
@@ -66,6 +68,7 @@ export default function ListMovies() {
           </Table.Footer>
         </table>
       </div>
+      </Card>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import Menu from 'components/Menu';
 import Home from 'pages/home/Home';
-import Movies from 'pages/movies/Movies';
+import Movies from 'pages/movies';
 import React from 'react';
 import {
   BrowserRouter as Router,

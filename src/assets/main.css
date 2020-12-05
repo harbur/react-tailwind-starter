@@ -32068,6 +32068,8 @@ video {
   animation: bounce 1s infinite;
 }
 
+/* buttons */
+
 .nav-btn {
   border-radius: 0.375rem;
   font-weight: 500;
@@ -32115,12 +32117,12 @@ video {
   padding-right: 1rem;
   text-align: center;
   --tw-text-opacity: 1;
-  color: rgba(55, 65, 81, var(--tw-text-opacity))
+  color: rgba(55, 65, 81, var(--tw-text-opacity));
 }
 
 .primary-btn {
   --tw-bg-opacity: 1;
-  background-color: rgba(59, 130, 246, var(--tw-bg-opacity))
+  background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
 }
 
 .primary-btn:hover {
@@ -32146,7 +32148,7 @@ video {
 
 .secondary-btn {
   --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity))
+  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
 }
 
 .secondary-btn:hover {
@@ -32170,9 +32172,20 @@ video {
   letter-spacing: -0.025em;
 }
 
+/* typography */
+
+h1 {
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  --tw-text-opacity: 1;
+  color: rgba(31, 41, 55, var(--tw-text-opacity));
+  letter-spacing: 0.05em;
+}
+
 h3 {
   font-size: 1.25rem;
-  line-height: 1.75rem
+  line-height: 1.75rem;
 }
 
 @media (min-width: 640px) {

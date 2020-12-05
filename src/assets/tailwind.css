@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* buttons */
 .nav-btn {
   @apply ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300;
   @apply hover:text-white hover:bg-gray-700;
@@ -10,19 +11,20 @@
 .nav-btn.active {
   @apply text-white bg-gray-900;
 }
-
 .placeholder {
-  @apply text-gray-700 text-center bg-gray-400 px-4 py-2 m-2
+  @apply text-gray-700 text-center bg-gray-400 px-4 py-2 m-2;
 }
-
 .primary-btn {
-  @apply bg-blue-500 rounded-md font-semibold text-white tracking-tight hover:bg-blue-600 hover:text-white
+  @apply bg-blue-500 rounded-md font-semibold text-white tracking-tight hover:bg-blue-600 hover:text-white;
 }
-
 .secondary-btn {
-  @apply bg-gray-200 rounded-md font-semibold text-gray-500 tracking-tight hover:bg-gray-300 hover:text-gray-500
+  @apply bg-gray-200 rounded-md font-semibold text-gray-500 tracking-tight hover:bg-gray-300 hover:text-gray-500;
 }
 
+/* typography */
+h1 {
+  @apply font-bold text-lg text-gray-800 tracking-wider;
+}
 h3 {
-  @apply text-xl
+  @apply text-xl;
 }
