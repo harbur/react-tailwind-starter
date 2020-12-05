@@ -4,8 +4,8 @@ import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { Container, Form } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
-import SubmitButtons from './buttons/SubmitButtons';
-import NameField from './fields/NameField';
+import SubmitButtons from '../../ui/form/SubmitButtons';
+import NameField from '../../ui/form/NameField';
 
 export default function EditMovie() {
   let { id } = useParams<Params>()

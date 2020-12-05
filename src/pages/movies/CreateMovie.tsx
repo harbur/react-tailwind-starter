@@ -2,8 +2,8 @@ import moviesActions from 'actions/moviesActions';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
-import SubmitButtons from './buttons/SubmitButtons';
-import NameField from './fields/NameField';
+import SubmitButtons from '../../ui/form/SubmitButtons';
+import NameField from '../../ui/form/NameField';
 
 export default function CreateMovie() {
   const [name, updateName] = React.useState("");

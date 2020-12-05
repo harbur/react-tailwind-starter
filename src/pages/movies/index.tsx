@@ -10,8 +10,8 @@ function Movies() {
     <>
       <Route exact path="/movies" component={ListMovies} />
       <Route strict exact path="/movies/new" component={CreateMovie} />
-      <Route exact path="/movies/:id" component={ViewMovie} />
-      <Route exact path="/movies/:id/edit" component={EditMovie} />
+      <Route exact path="/movies/view/:id" component={ViewMovie} />
+      <Route exact path="/movies/view/:id/edit" component={EditMovie} />
     </>
   );
 }

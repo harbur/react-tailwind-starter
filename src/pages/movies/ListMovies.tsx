@@ -41,10 +41,10 @@ export default function ListMovies() {
                   <TableCell>{movie.name}</TableCell>
                   <TableCell>
                     <Button.Group primary floated="right">
-                      <Button as={NavLink} to={`/movies/${movie.ID}`}>View</Button>
+                      <Button as={NavLink} to={`/movies/view/${movie.ID}`}>View</Button>
                       <Dropdown className='button icon'>
                         <Dropdown.Menu>
-                          <Button className="square" fluid icon labelPosition='right' as={NavLink} to={`/movies/${movie.ID}/edit`}>
+                          <Button className="square" fluid icon labelPosition='right' as={NavLink} to={`/movies/view/${movie.ID}/edit`}>
                             Edit
                         <Icon name='edit outline' />
                           </Button>
