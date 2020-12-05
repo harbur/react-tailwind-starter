@@ -59,6 +59,7 @@ export default function ListMovies() {
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan='3'>
+                <NavLink to="/movies/asdad"><button className="nav-btn">New Movie</button> </NavLink>
                 <Button secondary as={NavLink} to='/movies/new' floated='right'>New Movie</Button>
               </Table.HeaderCell>
             </Table.Row>
