@@ -1,4 +1,3 @@
-import Menu from 'components/Menu';
 import Home from 'pages/home/Home';
 import Movies from 'pages/movies';
 import React from 'react';
@@ -6,6 +5,7 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from "react-router-dom";
+import Menu from 'ui/components/Menu';
 import './App.css';
 
 function App() {

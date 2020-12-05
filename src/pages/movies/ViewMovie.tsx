@@ -1,8 +1,10 @@
 import moviesActions from 'actions/moviesActions';
 import React from 'react';
 import { NavLink, useHistory, useParams } from 'react-router-dom';
-import { Button, Container, Header, Icon } from 'semantic-ui-react';
+import { Button, Header, Icon } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
+import Card from 'ui/cards/Card';
+import Title from 'ui/cards/Title';
 
 export default function ViewMovie() {
   let { id } = useParams<{ id: string }>()
@@ -16,8 +18,8 @@ export default function ViewMovie() {
 
   return (
     <>
-      <Header as='h3'>View Movie</Header>
-      <Container textAlign="left">
+      <Title text="View Movie" />
+      <Card>
         <Header>Name: {data?.name}</Header>
 
         <Button as={NavLink} to={`/movies`}>Back</Button>
@@ -27,7 +29,7 @@ export default function ViewMovie() {
             // @ts-ignore
             name='right trash alternate outline' />
         </Button>
-      </Container>
+      </Card>
     </>
   )
 }

@@ -1,11 +1,18 @@
 import moviesActions from 'actions/moviesActions';
-import Card from 'cards/Card';
+import Card from 'ui/cards/Card';
+import Table from 'ui/cards/table/Table';
+import TableBody from 'ui/cards/table/TableBody';
+import TableCell from 'ui/cards/table/TableCell';
+import TableHead from 'ui/cards/table/TableHead';
+import TableRow from 'ui/cards/table/TableRow';
+import Title from 'ui/cards/Title';
 import Movie from 'models/movies';
 import React from 'react';
 import { queryCache } from 'react-query';
 import { NavLink } from 'react-router-dom';
-import { Button, Dropdown, Icon, Table } from 'semantic-ui-react';
+import { Button, Dropdown, Icon } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
+import PrimaryNavButton from 'ui/buttons/PrimaryButton';
 
 export default function ListMovies() {
   const { data, status } = moviesStore.useMovies();
@@ -19,55 +26,41 @@ export default function ListMovies() {
 
   return (
     <>
-      <h1>List Movies</h1>
+      <Title text="List Movies">
+        <PrimaryNavButton to="/movies/new" title="New" />
+      </Title>
 
-    <Card>
-      <div className="py-4">
-        <table className="table w-full">
-          <thead className="bg-gray-200 table-header-group col-span-full w-full">
-            <tr>
-              <th>Movie ID</th>
-              <th>Movie Name</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            {data && data.map((movie: Movie) => (
-              <tr key={movie.ID}>
-                <td className="text-center">{movie.ID}</td>
-                <td className="text-right">{movie.name}</td>
-                <td>
-                  <Button.Group primary floated="right">
-                    <Button as={NavLink} to={`/movies/${movie.ID}`}>View</Button>
-                    <Dropdown className='button icon'>
-                      <Dropdown.Menu>
-                        <Button className="square" fluid icon labelPosition='right' as={NavLink} to={`/movies/${movie.ID}/edit`}>
-                          Edit
+      <Card>
+        <div className="py-4">
+          <Table>
+            <TableHead columns={["Movie ID", "Movie Name", "Actions"]} />
+            <TableBody>
+              {data && data.map((movie: Movie) => (
+                <TableRow key={movie.ID}>
+                  <TableCell>{movie.ID}</TableCell>
+                  <TableCell>{movie.name}</TableCell>
+                  <TableCell>
+                    <Button.Group primary floated="right">
+                      <Button as={NavLink} to={`/movies/${movie.ID}`}>View</Button>
+                      <Dropdown className='button icon'>
+                        <Dropdown.Menu>
+                          <Button className="square" fluid icon labelPosition='right' as={NavLink} to={`/movies/${movie.ID}/edit`}>
+                            Edit
                         <Icon name='edit outline' />
-                        </Button>
-                        <Button className="square" icon labelPosition='right' onClick={() => remove(movie.ID as number)}>
-                          Delete
+                          </Button>
+                          <Button className="square" icon labelPosition='right' onClick={() => remove(movie.ID as number)}>
+                            Delete
                         <Icon name='trash alternate outline' />
-                        </Button>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Button.Group>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-
-          <Table.Footer>
-            <Table.Row>
-              <Table.HeaderCell colSpan='3'>
-                <NavLink to="/movies/asdad"><button className="nav-btn">New Movie</button> </NavLink>
-                <Button secondary as={NavLink} to='/movies/new' floated='right'>New Movie</Button>
-              </Table.HeaderCell>
-            </Table.Row>
-          </Table.Footer>
-        </table>
-      </div>
+                          </Button>
+                        </Dropdown.Menu>
+                      </Dropdown>
+                    </Button.Group>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </Card>
     </>
   );

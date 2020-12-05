@@ -1,7 +1,8 @@
 import React from 'react';
+import Title from 'ui/cards/Title';
 
 export default function Home() {
   return (
-    <div className="text-xl">Home Page</div>
+    <Title text="Home Page" />
   );
 }
