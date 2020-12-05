@@ -32082,13 +32082,6 @@ video {
   color: rgba(209, 213, 219, var(--tw-text-opacity));
 }
 
-.nav-btn.active {
-  --tw-bg-opacity: 1;
-  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
-  --tw-text-opacity: 1;
-  color: rgba(255, 255, 255, var(--tw-text-opacity));
-}
-
 .nav-btn:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
@@ -32101,6 +32094,13 @@ video {
   background-color: rgba(55, 65, 81, var(--tw-bg-opacity));
   outline: 2px solid transparent;
   outline-offset: 2px;
+  --tw-text-opacity: 1;
+  color: rgba(255, 255, 255, var(--tw-text-opacity));
+}
+
+.nav-btn.active {
+  --tw-bg-opacity: 1;
+  background-color: rgba(17, 24, 39, var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgba(255, 255, 255, var(--tw-text-opacity));
 }

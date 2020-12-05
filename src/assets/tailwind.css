@@ -4,9 +4,11 @@
 
 .nav-btn {
   @apply ml-4 px-3 py-2 rounded-md text-sm font-medium text-gray-300;
-  @apply active:text-white active:bg-gray-900;
   @apply hover:text-white hover:bg-gray-700;
   @apply focus:outline-none focus:text-white focus:bg-gray-700;
+}
+.nav-btn.active {
+  @apply text-white bg-gray-900;
 }
 
 .placeholder {
