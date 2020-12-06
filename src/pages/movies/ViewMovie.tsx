@@ -1,6 +1,5 @@
-import moviesActions from 'actions/moviesActions';
 import React from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
 import NavButton from 'ui/buttons/NavButton';

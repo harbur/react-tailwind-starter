@@ -1,3 +1,4 @@
+import SuspenseContainer from 'containers/SuspenseContainer';
 import Home from 'pages/home/Home';
 import Movies from 'pages/movies';
 import React from 'react';
@@ -24,10 +25,12 @@ function App() {
         <div className="flex flex-col h-screen">
           <Menu />
           <div className="p-4">
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/movies/" component={Movies} />
-            </Switch>
+            <SuspenseContainer>
+              <Switch>
+                <Route exact path="/" component={Home} />
+                <Route path="/movies/" component={Movies} />
+              </Switch>
+            </SuspenseContainer>
           </div>
         </div>
       </ReactQueryCacheProvider>
