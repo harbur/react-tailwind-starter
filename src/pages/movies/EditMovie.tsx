@@ -2,7 +2,6 @@ import moviesActions from 'actions/moviesActions';
 import Params from 'models/params';
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
-import { Form } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
 import NavButton from 'ui/buttons/NavButton';
 import Card from 'ui/cards/Card';
@@ -23,20 +22,22 @@ export default function EditMovie() {
     }
   }, [data])
 
-  async function submit() {
+  async function submit(event: any) {
+    event?.preventDefault()
+
     updateLoading(true)
     try {
       const body = { ID: +id, name }
       await moviesActions.update(+id, body)
+      updateLoading(false)
       history.push('/movies/')
     } catch (error) {
+      console.log('err', error)
       //   updateError({
       //     ok: false,
       //     reason: error.reason,
       //     message: error.message,
       //   })
-    } finally {
-      updateLoading(false)
     }
   }
 
@@ -46,10 +47,10 @@ export default function EditMovie() {
         <NavButton to="/movies/" title="Back" />
       </Title>
       <Card>
-        <Form>
+        <form onSubmit={submit}>
           <NameField value={name} onChange={updateName} />
-          <SubmitButtons cancelURL='/movies/' disabled={false} loading={loading} onClick={submit} />
-        </Form>
+          <SubmitButtons cancelURL='/movies/' disabled={false} loading={loading} />
+        </form>
       </Card>
     </>
   );

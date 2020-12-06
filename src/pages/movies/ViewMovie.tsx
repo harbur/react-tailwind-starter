@@ -1,5 +1,5 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
 import { Header } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
 import NavButton from 'ui/buttons/NavButton';
@@ -9,7 +9,9 @@ import Title from 'ui/cards/Title';
 
 export default function ViewMovie() {
   let { id } = useParams<{ id: string }>()
-  const { data } = moviesStore.useMovie(+id)
+  const { data, refetch } = moviesStore.useMovie(+id)
+  const location = useLocation()
+  useEffect(() => { refetch() }, [refetch, location])
 
   return (
     <>
@@ -19,7 +21,7 @@ export default function ViewMovie() {
       <Card>
         <Header>Name: {data?.name}</Header>
 
-        <PrimaryNavButton to={`/movies/view/${id}/edit`} title="Edit" />
+        <PrimaryNavButton to={`/movies/edit/${id}`} title="Edit" />
       </Card>
     </>
   )
