@@ -1,5 +1,4 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react'
 
 interface Props {
   value: string,
@@ -8,11 +7,10 @@ interface Props {
 
 export default function NameField(props: Props) {
   return (
-    <Form.Input
+    <input
       required
       autoFocus
       name="name"
-      label="Name"
       value={props.value}
       placeholder="Name"
       onChange={e => props.onChange(e.target.value)}

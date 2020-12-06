@@ -1,6 +1,6 @@
 import moviesActions from 'actions/moviesActions';
 import Movie from 'models/movies';
-import React, { Suspense, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import moviesStore from 'stores/moviesStore';
 import DeleteButton from 'ui/buttons/DeleteButton';
@@ -29,7 +29,7 @@ export default function ListMovies() {
           <TableHead columns={["ID", "Name", "Actions"]} />
           <TableBody>
             {data && data.map((movie: Movie) => (
-              <MovieRow movie={movie} />
+              <MovieRow key={movie.ID} movie={movie} />
             ))}
           </TableBody>
         </Table>

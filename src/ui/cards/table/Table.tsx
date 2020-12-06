@@ -3,9 +3,9 @@ import React from 'react'
 interface Props { children: any }
 function Table({ children }: Props) {
   return (
-    <div className="table w-full">
+    <table className="table w-full">
       {children}
-    </div>
+    </table>
   )
 }
 

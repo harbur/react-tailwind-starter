@@ -63,4 +63,5 @@ async function remove(uri: string, body?: any, params?: any) {
   return await response
 }
 
-export default { get, post, put, remove }
+const restClient = { get, post, put, remove }
+export default restClient

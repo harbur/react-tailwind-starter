@@ -17,6 +17,7 @@ export default function CreateMovie() {
     updateLoading(true)
     try {
       const body = { name, ID: 0 }
+      console.dir(body)
       await moviesActions.create(body)
       history.push('/movies/')
     } catch (error) {
@@ -36,7 +37,7 @@ export default function CreateMovie() {
         <NavButton to="/movies/" title="Back" />
       </Title>
       <Card>
-        <Form>
+        <Form onSubmit={submit}>
           <NameField value={name} onChange={updateName} />
           <SubmitButtons cancelURL='/movies/' disabled={false} loading={loading} onClick={submit} />
         </Form>
