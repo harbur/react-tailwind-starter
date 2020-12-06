@@ -18,7 +18,7 @@ export default function CreateMovie() {
     try {
       const body = { name, ID: 0 }
       await moviesActions.create(body)
-      history.push('/movies')
+      history.push('/movies/')
     } catch (error) {
       //   updateError({
       //     ok: false,

@@ -28,7 +28,7 @@ export default function EditMovie() {
     try {
       const body = { ID: +id, name }
       await moviesActions.update(+id, body)
-      history.push('/movies')
+      history.push('/movies/')
     } catch (error) {
       //   updateError({
       //     ok: false,

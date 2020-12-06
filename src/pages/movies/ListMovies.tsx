@@ -1,7 +1,8 @@
 import moviesActions from 'actions/moviesActions';
 import Movie from 'models/movies';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { queryCache } from 'react-query';
+import { useHistory, useLocation } from 'react-router-dom';
 import moviesStore from 'stores/moviesStore';
 import DeleteButton from 'ui/buttons/DeleteButton';
 import NavButton from 'ui/buttons/NavButton';
@@ -15,7 +16,9 @@ import TableRow from 'ui/cards/table/TableRow';
 import Title from 'ui/cards/Title';
 
 export default function ListMovies() {
-  const { data, status } = moviesStore.useMovies();
+  const { data, status, refetch } = moviesStore.useMovies();
+  const location = useLocation()
+  useEffect(() => { refetch() }, [refetch, location])
 
   if (status === "loading") return <p>Loading...</p>;
   if (status === "error") return <p>Error :(</p>;
@@ -41,9 +44,10 @@ export default function ListMovies() {
 
 interface MovieRowProps { movie: Movie }
 function MovieRow({ movie }: MovieRowProps) {
+  const history = useHistory()
   async function remove(id: number) {
     await moviesActions.remove(id)
-    queryCache.refetchQueries("movies")
+    history.push('.')
   }
 
   return (

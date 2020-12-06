@@ -8,7 +8,6 @@ function DeleteButton({ title, onClick }: Props) {
       {title}
       <Icon name='trash alternate outline' />
     </Button>
-
   );
 }
 
