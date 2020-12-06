@@ -32166,6 +32166,19 @@ video {
   color: rgba(107, 114, 128, var(--tw-text-opacity));
 }
 
+.tertiary-btn {
+  font-weight: 600;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  --tw-text-opacity: 1;
+  color: rgba(59, 130, 246, var(--tw-text-opacity));
+  letter-spacing: -0.025em;
+}
+
+.tertiary-btn:hover {
+  text-decoration: underline;
+}
+
 /* typography */
 
 h1 {

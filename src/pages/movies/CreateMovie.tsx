@@ -13,7 +13,7 @@ export default function CreateMovie() {
   async function submit() {
     updateLoading(true)
     try {
-      const body = { name, ID: undefined }
+      const body = { name, ID: 0 }
       await moviesActions.create(body)
       history.push('/movies')
     } catch (error) {
