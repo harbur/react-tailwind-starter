@@ -3,7 +3,7 @@ import React from 'react'
 interface Props { children: any }
 function TableCell({ children }: Props) {
   return (
-    <td className="text-right">
+    <td className="text-center">
       {children}
     </td>
   )
