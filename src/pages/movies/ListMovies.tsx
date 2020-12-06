@@ -39,7 +39,6 @@ export default function ListMovies() {
   );
 }
 
-
 interface MovieRowProps { movie: Movie }
 function MovieRow({ movie }: MovieRowProps) {
   async function remove(id: number) {

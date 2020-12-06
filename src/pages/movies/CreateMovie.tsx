@@ -2,8 +2,11 @@ import moviesActions from 'actions/moviesActions';
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form } from 'semantic-ui-react';
-import SubmitButtons from '../../ui/form/SubmitButtons';
+import NavButton from 'ui/buttons/NavButton';
+import Card from 'ui/cards/Card';
+import Title from 'ui/cards/Title';
 import NameField from '../../ui/form/NameField';
+import SubmitButtons from '../../ui/form/SubmitButtons';
 
 export default function CreateMovie() {
   const [name, updateName] = React.useState("");
@@ -28,9 +31,16 @@ export default function CreateMovie() {
   }
 
   return (
-    <Form>
-      <NameField value={name} onChange={updateName} />
-      <SubmitButtons cancelURL='/movies' disabled={false} loading={loading} onClick={submit} />
-    </Form>
+    <>
+      <Title text="Create Movie">
+        <NavButton to="/movies/" title="Back" />
+      </Title>
+      <Card>
+        <Form>
+          <NameField value={name} onChange={updateName} />
+          <SubmitButtons cancelURL='/movies/' disabled={false} loading={loading} onClick={submit} />
+        </Form>
+      </Card>
+    </>
   );
 }
