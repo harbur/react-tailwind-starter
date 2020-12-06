@@ -1,8 +1,6 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
 
 interface Props {
-  cancelURL: string;
   loading: boolean;
   disabled: boolean;
 }

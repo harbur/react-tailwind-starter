@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
-import { Header } from 'semantic-ui-react';
 import moviesStore from 'stores/moviesStore';
 import NavButton from 'ui/buttons/NavButton';
 import PrimaryNavButton from 'ui/buttons/PrimaryNavButton';
@@ -19,7 +18,7 @@ export default function ViewMovie() {
         <NavButton to="/movies/" title="Back" />
       </Title>
       <Card>
-        <Header>Name: {data?.name}</Header>
+        <h3>Name: {data?.name}</h3>
 
         <PrimaryNavButton to={`/movies/edit/${id}`} title="Edit" />
       </Card>
