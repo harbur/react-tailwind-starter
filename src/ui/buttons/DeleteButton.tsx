@@ -1,10 +1,19 @@
 import React from 'react';
 
-interface Props { title: string, onClick(): void }
-function DeleteButton({ title, onClick }: Props) {
+export interface DeleteButtonProps {
+  /**
+   * Button content
+   */
+  label: string,
+  /**
+   * click handler
+   */
+  onClick(): void
+}
+function DeleteButton({ label, onClick }: DeleteButtonProps) {
   return (
     <button onClick={onClick}>
-      {title}
+      {label}
     </button>
   );
 }

@@ -32,7 +32,7 @@ export default function CreateMovie() {
   return (
     <>
       <Title text="Create Movie">
-        <NavButton to="/movies/" title="Back" />
+        <NavButton to="/movies/" label="Back" />
       </Title>
       <Card>
         <form onSubmit={submit}>

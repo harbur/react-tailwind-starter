@@ -13,7 +13,7 @@ function SuspenseContainer({ children }: Props) {
       fallbackRender={({ error, resetErrorBoundary }: any) => (
         <div>
           There was an error!{" "}
-          <ActionButton onClick={() => resetErrorBoundary()} title="Try again" />
+          <ActionButton onClick={() => resetErrorBoundary()} label="Try again" />
           <pre style={{ whiteSpace: "normal" }}>{error.message}</pre>
         </div>
       )}

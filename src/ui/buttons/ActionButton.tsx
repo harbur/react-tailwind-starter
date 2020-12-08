@@ -1,7 +1,16 @@
 import React, { useState } from 'react';
 
-interface Props { title: string, onClick(): void }
-function ActionButton({ title, onClick }: Props) {
+export interface ActionButtonProps {
+  /**
+   * Button content
+   */
+  label: string,
+  /**
+   * click handler
+   */
+  onClick(): void
+}
+function ActionButton({ label, onClick }: ActionButtonProps) {
   const [loading, updateLoading] = useState(false)
   const click = async () => {
     updateLoading(true)
@@ -10,7 +19,7 @@ function ActionButton({ title, onClick }: Props) {
   }
   return (
     <button onClick={click} className="tertiary-btn">
-      {title} {loading && "LOADING"}
+      {label} {loading && "LOADING"}
     </button>
   );
 }

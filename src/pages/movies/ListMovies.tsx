@@ -22,7 +22,7 @@ export default function ListMovies() {
   return (
     <>
       <Title text="List Movies">
-        <PrimaryNavButton to="/movies/new" title="New" />
+        <PrimaryNavButton to="/movies/new" label="New" />
       </Title>
       <Card>
         <Table>
@@ -50,8 +50,8 @@ function MovieRow({ movie }: MovieRowProps) {
   return (
     <TableRow key={movie.id}>
       <TableCell>{movie.id}</TableCell>
-      <TableCell><NavButton to={`/movies/view/${movie.id}/`} title={movie.name} /></TableCell>
-      <TableCell><DeleteButton title="Delete" onClick={() => remove(movie.id)} />
+      <TableCell><NavButton to={`/movies/view/${movie.id}/`} label={movie.name} /></TableCell>
+      <TableCell><DeleteButton label="Delete" onClick={() => remove(movie.id)} />
       </TableCell>
     </TableRow>
   )

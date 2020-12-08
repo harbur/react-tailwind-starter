@@ -44,7 +44,7 @@ export default function EditMovie() {
   return (
     <>
       <Title text="Edit Movie">
-        <NavButton to="/movies/" title="Back" />
+        <NavButton to="/movies/" label="Back" />
       </Title>
       <Card>
         <form onSubmit={submit}>
