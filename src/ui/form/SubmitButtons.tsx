@@ -1,14 +1,14 @@
 import React from 'react'
+import SubmitButton from 'ui/buttons/SubmitButton'
 
 interface Props {
   loading: boolean;
-  disabled: boolean;
 }
 
-export default function SubmitButtons(props: Props) {
+export default function SubmitButtons({ loading }: Props) {
   return (
     <div className="flex gap-x-2">
-      <button className="p-3 px-5 primary-btn" type="submit">Submit</button>
+      <SubmitButton type="primary" loading={loading} text="Submit"/>
     </div >
   )
 }

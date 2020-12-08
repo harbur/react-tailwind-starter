@@ -31,7 +31,7 @@ export function makeServer({ environment = "test" } = {}) {
       this.put("/movies/:id")
       this.post("/movies", (schema, request) => {
         let attrs = JSON.parse(request.requestBody)
-        attrs.id = Math.floor(Math.random() * 100)
+        attrs.id = Math.floor(Math.random() * 10000)
         this.create("movie", attrs)
         return { movie: attrs }
       })

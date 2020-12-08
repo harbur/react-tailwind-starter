@@ -49,7 +49,7 @@ export default function EditMovie() {
       <Card>
         <form onSubmit={submit}>
           <NameField value={name} onChange={updateName} />
-          <SubmitButtons disabled={false} loading={loading} />
+          <SubmitButtons loading={loading} />
         </form>
       </Card>
     </>
