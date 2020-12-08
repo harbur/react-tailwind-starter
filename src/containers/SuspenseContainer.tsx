@@ -19,7 +19,7 @@ function SuspenseContainer({ children }: Props) {
       )}
       onReset={() => cache.resetErrorBoundaries()}
     >
-      <Suspense fallback={<div >Loading...</div>}>
+      <Suspense fallback={<div data-testid="loading">Loading...</div>}>
         {children}
       </Suspense>
     </ErrorBoundary>

@@ -1,8 +1,7 @@
 import { ActiveModelSerializer, createServer, Factory, Model, Server } from "miragejs"
 
 export function makeServer({ environment = "test" } = {}) {
-
-  createServer({
+  return createServer({
     environment,
     serializers: {
       application: ActiveModelSerializer,

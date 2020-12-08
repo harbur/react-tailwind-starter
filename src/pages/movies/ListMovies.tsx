@@ -15,7 +15,7 @@ import TableRow from 'ui/cards/table/TableRow';
 import Title from 'ui/typography/Title';
 
 export default function ListMovies() {
-  const { data, refetch } = moviesStore.useMovies();
+  const { data, isLoading, refetch } = moviesStore.useMovies();
   const location = useLocation()
   useEffect(() => { refetch() }, [refetch, location])
 
@@ -24,6 +24,7 @@ export default function ListMovies() {
       <Title text="List Movies">
         <PrimaryNavButton to="/movies/new" label="New" />
       </Title>
+      {isLoading && <div data-testid="loading" />}
       <Card>
         <Table>
           <TableHead columns={["ID", "Name", "Actions"]} />
