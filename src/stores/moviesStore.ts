@@ -1,5 +1,5 @@
 import moviesActions from 'actions/moviesActions';
-import Movie from 'models/movies';
+import { GetMovie, ListMovies } from 'models/movies';
 import QueryKeys from 'models/queryKeys';
 import { useQuery } from 'react-query';
 
@@ -8,7 +8,7 @@ import { useQuery } from 'react-query';
  */
 function useMovies() {
   const queryKey: QueryKeys = ["movies"]
-  return useQuery<Movie[], Error>(queryKey, () => moviesActions.list());
+  return useQuery<ListMovies, Error>(queryKey, () => moviesActions.list());
 }
 
 /**
@@ -19,7 +19,7 @@ function useMovies() {
 function useMovie(id: number) {
   const enabled = id !== undefined
   const queryKey: QueryKeys = ["movies", { id }]
-  return useQuery<Movie, Error>(enabled && queryKey, () => moviesActions.get(id), { enabled });
+  return useQuery<GetMovie, Error>(enabled && queryKey, () => moviesActions.get(id), { enabled });
 }
 
 const moviesStore = { useMovies, useMovie }

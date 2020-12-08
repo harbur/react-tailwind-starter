@@ -18,7 +18,7 @@ export default function ViewMovie() {
         <NavButton to="/movies/" title="Back" />
       </Title>
       <Card>
-        <h3>Name: {data?.name}</h3>
+        <h3>Name: {data?.movie.name}</h3>
 
         <PrimaryNavButton to={`/movies/edit/${id}`} title="Edit" />
       </Card>

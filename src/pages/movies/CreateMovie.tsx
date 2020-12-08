@@ -16,7 +16,7 @@ export default function CreateMovie() {
     event?.preventDefault()
     updateLoading(true)
     try {
-      const body = { name, ID: 0 }
+      const body = { name, id: 0 }
       await moviesActions.create(body)
       updateLoading(false)
       history.push('/movies/')

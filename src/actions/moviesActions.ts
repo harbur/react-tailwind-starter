@@ -1,16 +1,17 @@
-import Movie from 'models/movies';
+
+import { GetMovie, ListMovies, Movie } from 'models/movies';
 import restClient from 'utils/restClient';
 
 async function create(movie: Movie) {
-  return await restClient.post<Movie[]>('/api/movies', movie);
+  return await restClient.post<Movie>('/api/movies', movie);
 }
 
 async function list() {
-  return await restClient.get<Movie[]>('/api/movies');
+  return await restClient.get<ListMovies>('/api/movies');
 }
 
 async function get(id: number) {
-  return await restClient.get<Movie>(`/api/movies/${id}`);
+  return await restClient.get<GetMovie>(`/api/movies/${id}`);
 }
 
 async function update(id: number, movie: Movie) {

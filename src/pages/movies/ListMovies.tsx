@@ -1,5 +1,5 @@
 import moviesActions from 'actions/moviesActions';
-import Movie from 'models/movies';
+import { Movie } from 'models/movies';
 import React, { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import moviesStore from 'stores/moviesStore';
@@ -28,8 +28,8 @@ export default function ListMovies() {
         <Table>
           <TableHead columns={["ID", "Name", "Actions"]} />
           <TableBody>
-            {data && data.map((movie: Movie) => (
-              <MovieRow key={movie.ID} movie={movie} />
+            {data && data.movies.map((movie: Movie) => (
+              <MovieRow key={movie.id} movie={movie} />
             ))}
           </TableBody>
         </Table>
@@ -48,10 +48,10 @@ function MovieRow({ movie }: MovieRowProps) {
   }
 
   return (
-    <TableRow key={movie.ID}>
-      <TableCell>{movie.ID}</TableCell>
-      <TableCell><NavButton to={`/movies/view/${movie.ID}/`} title={movie.name} /></TableCell>
-      <TableCell><DeleteButton title="Delete" onClick={() => remove(movie.ID)} />
+    <TableRow key={movie.id}>
+      <TableCell>{movie.id}</TableCell>
+      <TableCell><NavButton to={`/movies/view/${movie.id}/`} title={movie.name} /></TableCell>
+      <TableCell><DeleteButton title="Delete" onClick={() => remove(movie.id)} />
       </TableCell>
     </TableRow>
   )

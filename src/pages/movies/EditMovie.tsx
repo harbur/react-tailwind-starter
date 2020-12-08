@@ -18,7 +18,7 @@ export default function EditMovie() {
   const { data } = moviesStore.useMovie(+id)
   React.useEffect(() => {
     if (data !== undefined) {
-      updateName(data.name)
+      updateName(data.movie.name)
     }
   }, [data])
 
@@ -27,7 +27,7 @@ export default function EditMovie() {
 
     updateLoading(true)
     try {
-      const body = { ID: +id, name }
+      const body = { id: +id, name }
       await moviesActions.update(+id, body)
       updateLoading(false)
       history.push('/movies/')
