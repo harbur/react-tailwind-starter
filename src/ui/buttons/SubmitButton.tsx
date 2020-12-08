@@ -1,8 +1,15 @@
 import React, { useMemo } from 'react'
 import ButtonSpinner from 'ui/spinner/ButtonSpinner'
 
-interface Props { loading: boolean, disabled?: boolean, text: string, autofocus?: boolean, type?: "primary" | "secondary" | "tertiary" | "danger", onClick?(): void }
-export default function SubmitButton({ loading, disabled = false, text, autofocus = false, type = "primary", onClick }: Props) {
+export interface SubmitButtonProps {
+  loading: boolean,
+  disabled?: boolean,
+  text: string,
+  autofocus?: boolean,
+  type?: "primary" | "secondary" | "tertiary" | "danger",
+  onClick?(): void
+}
+export default function SubmitButton({ loading, disabled = false, text, autofocus = false, type = "primary", onClick }: SubmitButtonProps) {
   const typeClass = useMemo(() => {
     switch (type) {
       case "danger": return "danger-btn"
