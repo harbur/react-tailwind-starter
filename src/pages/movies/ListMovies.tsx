@@ -24,7 +24,6 @@ export default function ListMovies() {
       <Title text="List Movies">
         <PrimaryNavButton to="/movies/new" label="New" />
       </Title>
-      {isLoading && <div data-testid="loading" />}
       <Card>
         <Table>
           <TableHead columns={["ID", "Name", "Actions"]} />
