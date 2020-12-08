@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface Props { children: any }
-function TableRow({ children }: Props) {
+function TableRow(props: Props) {
   return (
-    <tr>
-      {children}
+    <tr  {...props}>
+      {props.children}
     </tr>
   )
 }

@@ -49,10 +49,10 @@ function MovieRow({ movie }: MovieRowProps) {
   }
 
   return (
-    <TableRow key={movie.id}>
+    <TableRow data-testid="movie" key={movie.id}>
       <TableCell>{movie.id}</TableCell>
       <TableCell><NavButton to={`/movies/view/${movie.id}/`} label={movie.name} /></TableCell>
-      <TableCell><DeleteButton label="Delete" onClick={() => remove(movie.id)} />
+      <TableCell><DeleteButton label="Delete" onClick={() => remove(movie.id)} testid="delete-button"/>
       </TableCell>
     </TableRow>
   )

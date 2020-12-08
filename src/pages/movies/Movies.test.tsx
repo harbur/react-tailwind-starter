@@ -1,8 +1,9 @@
 
 import { Server } from 'miragejs';
 import React from 'react';
+import { queryCache } from 'react-query';
 import { makeServer } from 'server';
-import { render, screen, waitForElementToBeRemoved } from 'utils/customRender';
+import { fireEvent, render, screen, waitForElementToBeRemoved } from 'utils/customRender';
 import ListMovies from './ListMovies';
 
 let server: Server
@@ -13,12 +14,21 @@ beforeEach(() => {
 
 afterEach(() => {
   server.shutdown()
+  queryCache.clear();
 })
 
 test('lists movies', async () => {
   server.createList("movie", 3);
-  render(<ListMovies />);
+  const { getAllByTestId } = render(<ListMovies />);
   await waitForElementToBeRemoved(() => screen.getByTestId('loading'))
-  const linkElement = screen.getByText(/List Movies/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(getAllByTestId("movie")).toHaveLength(3);
+});
+
+test('delete a movie', async () => {
+  server.create("movie");
+  const { getAllByTestId } = render(<ListMovies />);
+  await waitForElementToBeRemoved(() => screen.getByTestId('loading'))
+  expect(getAllByTestId("movie")).toHaveLength(1);
+  fireEvent.click(screen.getAllByTestId('delete-button')[0]);
+  await waitForElementToBeRemoved(() => screen.getByTestId('delete-button'))
 });

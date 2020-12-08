@@ -9,10 +9,14 @@ export interface DeleteButtonProps {
    * click handler
    */
   onClick(): void
+  /**
+   * optional data-testid
+   */
+  testid?: string
 }
-function DeleteButton({ label, onClick }: DeleteButtonProps) {
+function DeleteButton({ label, onClick, testid }: DeleteButtonProps) {
   return (
-    <button onClick={onClick}>
+    <button onClick={onClick} data-testid={testid}>
       {label}
     </button>
   );
