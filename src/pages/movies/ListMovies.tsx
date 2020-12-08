@@ -12,7 +12,7 @@ import TableBody from 'ui/cards/table/TableBody';
 import TableCell from 'ui/cards/table/TableCell';
 import TableHead from 'ui/cards/table/TableHead';
 import TableRow from 'ui/cards/table/TableRow';
-import Title from 'ui/cards/Title';
+import Title from 'ui/typography/Title';
 
 export default function ListMovies() {
   const { data, refetch } = moviesStore.useMovies();

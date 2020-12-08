@@ -1,6 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+interface LayoutProps { children: any }
+export default function Layout({ children }: LayoutProps) {
+  return (
+    <div className="flex flex-col h-screen">
+      <Menu />
+      <div className="p-4">
+        {children}
+      </div>
+    </div>
+  )
+}
+
 // Menu at the top with navigation buttons
 function Menu() {
   return (
@@ -18,5 +30,3 @@ interface NavButtonProps { to: string, title: string, exact?: boolean }
 function NavButton({ exact = false, to, title }: NavButtonProps) {
   return <NavLink exact={exact} to={to} className="nav-btn">{title}</NavLink>
 }
-
-export default Menu

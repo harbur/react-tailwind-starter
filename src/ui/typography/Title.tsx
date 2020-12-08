@@ -1,7 +1,11 @@
 import React from 'react'
 
-interface Props { text: string, children?: any }
-function Title({ text, children }: Props) {
+export interface TitleProps {
+  text: string,
+  children?: any
+}
+
+function Title({ text, children }: TitleProps) {
   return (
     <div className="flex py-2">
       <h1 className="flex-1">{text}</h1>

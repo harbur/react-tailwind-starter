@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from "react-router-dom";
-import Menu from 'ui/components/Menu';
+import Layout from 'ui/layouts/MenuLayout';
 import './App.css';
 
 const queryCache = new QueryCache({
@@ -22,17 +22,14 @@ function App() {
   return (
     <Router>
       <ReactQueryCacheProvider queryCache={queryCache}>
-        <div className="flex flex-col h-screen">
-          <Menu />
-          <div className="p-4">
-            <SuspenseContainer>
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/movies/" component={Movies} />
-              </Switch>
-            </SuspenseContainer>
-          </div>
-        </div>
+        <Layout>
+          <SuspenseContainer>
+            <Switch>
+              <Route exact path="/"><Home /></Route>
+              <Route path="/movies/"><Movies /></Route>
+            </Switch>
+          </SuspenseContainer>
+        </Layout>
       </ReactQueryCacheProvider>
     </Router>
   );

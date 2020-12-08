@@ -4,7 +4,7 @@ import moviesStore from 'stores/moviesStore';
 import NavButton from 'ui/buttons/NavButton';
 import PrimaryNavButton from 'ui/buttons/PrimaryNavButton';
 import Card from 'ui/cards/Card';
-import Title from 'ui/cards/Title';
+import Title from 'ui/typography/Title';
 
 export default function ViewMovieWrapper() {
   let { id } = useParams<{ id: string }>()

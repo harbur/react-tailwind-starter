@@ -3,7 +3,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import NavButton from 'ui/buttons/NavButton';
 import Card from 'ui/cards/Card';
-import Title from 'ui/cards/Title';
+import Title from 'ui/typography/Title';
 import NameField from '../../ui/form/NameField';
 import SubmitButtons from '../../ui/form/SubmitButtons';
 
