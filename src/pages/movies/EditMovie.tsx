@@ -51,7 +51,7 @@ export function EditMovie({ id }: EditMovieProps) {
         <NavButton to="/movies/" label="Back" />
       </Title>
       <Card>
-        <form onSubmit={submit}>
+        <form onSubmit={submit} data-testid="edit-movie-form">
           <NameField value={name} onChange={updateName} />
           <SubmitButtons loading={loading} />
         </form>

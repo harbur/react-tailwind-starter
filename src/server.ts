@@ -27,7 +27,13 @@ export function makeServer({ environment = "test" } = {}) {
 
       this.get("/movies")
       this.get("/movies/:id")
-      this.put("/movies/:id")
+      this.put("/movies/:id", (schema, request) => {
+        let attrs = JSON.parse(request.requestBody);
+        let records = schema.db.movies.where({ id: attrs.id });
+        if (records.length > 0) {
+          return schema.db.movies.update(attrs.id, attrs);
+        }
+      })
       this.post("/movies", (schema, request) => {
         let attrs = JSON.parse(request.requestBody)
         attrs.id = Math.floor(Math.random() * 10000)

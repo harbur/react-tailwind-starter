@@ -35,7 +35,7 @@ export default function CreateMovie() {
         <NavButton to="/movies/" label="Back" />
       </Title>
       <Card>
-        <form onSubmit={submit}>
+        <form onSubmit={submit} data-testid="create-movie-form">
           <NameField value={name} onChange={updateName} />
           <SubmitButtons loading={loading} />
         </form>

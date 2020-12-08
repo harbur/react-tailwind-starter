@@ -23,9 +23,9 @@ export function ViewMovie({ id }: ViewMovieProps) {
         <NavButton to="/movies/" label="Back" />
       </Title>
       <Card>
-        <h3>Name: {data?.movie.name}</h3>
+        <h3 data-testid="view-movie">Name: {data?.movie.name}</h3>
 
-        <PrimaryNavButton to={`/movies/edit/${id}`} label="Edit" />
+        <PrimaryNavButton to={`/movies/edit/${id}/`} label="Edit" />
       </Card>
     </>
   )

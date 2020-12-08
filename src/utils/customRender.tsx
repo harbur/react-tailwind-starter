@@ -1,16 +1,31 @@
 import { render } from "@testing-library/react";
+import history from "actions/history";
 import SuspenseContainer from "containers/SuspenseContainer";
 import React from "react";
-import { MemoryRouter } from "react-router-dom";
+import { QueryCache, ReactQueryCacheProvider } from "react-query";
+import { Router } from "react-router-dom";
+import Layout from "ui/layouts/MenuLayout";
+
+export const queryCache = new QueryCache({
+  defaultConfig: {
+    queries: {
+      suspense: true,
+    },
+  },
+})
 
 const Wrapper = ({ children }: { children: any }) => {
   return (
     <>
-      <MemoryRouter>
-        <SuspenseContainer>
-          {children}
-        </SuspenseContainer>
-      </MemoryRouter>
+      <Router history={history}>
+        <ReactQueryCacheProvider queryCache={queryCache}>
+          <Layout>
+            <SuspenseContainer>
+              {children}
+            </SuspenseContainer>
+          </Layout>
+        </ReactQueryCacheProvider>
+      </Router>
     </>
   );
 };
