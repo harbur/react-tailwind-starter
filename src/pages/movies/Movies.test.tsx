@@ -4,6 +4,7 @@ import React from 'react';
 import { queryCache } from 'react-query';
 import { makeServer } from 'server';
 import { fireEvent, render, screen, waitForElementToBeRemoved } from 'utils/customRender';
+import Movies from '.';
 import ListMovies from './ListMovies';
 
 let server: Server
@@ -16,6 +17,12 @@ afterEach(() => {
   server.shutdown()
   queryCache.clear();
 })
+
+test('list movies has correct title', async () => {
+  render(<Movies />);
+  const linkElement = screen.getByText(/List Movies/i);
+  expect(linkElement).toBeInTheDocument();
+});
 
 test('lists movies', async () => {
   server.createList("movie", 3);
