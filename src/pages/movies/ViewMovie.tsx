@@ -6,9 +6,14 @@ import PrimaryNavButton from 'ui/buttons/PrimaryNavButton';
 import Card from 'ui/cards/Card';
 import Title from 'ui/cards/Title';
 
-export default function ViewMovie() {
+export default function ViewMovieWrapper() {
   let { id } = useParams<{ id: string }>()
-  const { data, refetch } = moviesStore.useMovie(+id)
+  return ViewMovie({ id: +id })
+}
+
+export interface ViewMovieProps { id: number }
+export function ViewMovie({ id }: ViewMovieProps) {
+  const { data, refetch } = moviesStore.useMovie(id)
   const location = useLocation()
   useEffect(() => { refetch() }, [refetch, location])
 

@@ -1,5 +1,4 @@
 import moviesActions from 'actions/moviesActions';
-import Params from 'models/params';
 import React from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import moviesStore from 'stores/moviesStore';
@@ -9,8 +8,13 @@ import Title from 'ui/cards/Title';
 import NameField from '../../ui/form/NameField';
 import SubmitButtons from '../../ui/form/SubmitButtons';
 
-export default function EditMovie() {
-  let { id } = useParams<Params>()
+export default function EditMovieWrapper() {
+  let { id } = useParams<{ id: string }>()
+  return EditMovie({ id: +id })
+}
+
+export interface EditMovieProps { id: number }
+export function EditMovie({ id }: EditMovieProps) {
   const [name, updateName] = React.useState("");
   const [loading, updateLoading] = React.useState(false)
   const history = useHistory()
