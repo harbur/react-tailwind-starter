@@ -4,7 +4,7 @@ import React from 'react';
 import NavButton, { NavButtonProps } from './NavButton';
 
 export default {
-  title: 'Example/NavButton',
+  title: 'Buttons/NavButton',
   component: NavButton,
   argTypes: {
   },

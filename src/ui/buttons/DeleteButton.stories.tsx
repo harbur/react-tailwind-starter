@@ -4,7 +4,7 @@ import React from 'react';
 import DeleteButton, { DeleteButtonProps } from './DeleteButton';
 
 export default {
-  title: 'Example/DeleteButton',
+  title: 'Buttons/DeleteButton',
   component: DeleteButton,
   argTypes: {
   },
