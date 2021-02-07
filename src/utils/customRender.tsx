@@ -4,7 +4,7 @@ import SuspenseContainer from "containers/SuspenseContainer";
 import React from "react";
 import { QueryCache, ReactQueryCacheProvider } from "react-query";
 import { Router } from "react-router-dom";
-import Layout from "ui/layouts/MenuLayout";
+import TopMenuLayout from "ui/layouts/TopMenuLayout";
 
 export const queryCache = new QueryCache({
   defaultConfig: {
@@ -19,11 +19,11 @@ const Wrapper = ({ children }: { children: any }) => {
     <>
       <Router history={history}>
         <ReactQueryCacheProvider queryCache={queryCache}>
-          <Layout>
+          <TopMenuLayout>
             <SuspenseContainer>
               {children}
             </SuspenseContainer>
-          </Layout>
+          </TopMenuLayout>
         </ReactQueryCacheProvider>
       </Router>
     </>

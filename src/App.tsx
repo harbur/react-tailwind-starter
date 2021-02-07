@@ -7,7 +7,7 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from "react-router-dom";
-import Layout from 'ui/layouts/MenuLayout';
+import SideMenuLayout from 'ui/layouts/SideMenuLayout';
 import './App.css';
 
 const queryCache = new QueryCache({
@@ -22,14 +22,14 @@ function App() {
   return (
     <Router>
       <ReactQueryCacheProvider queryCache={queryCache}>
-        <Layout>
+        <SideMenuLayout>
           <SuspenseContainer>
             <Switch>
               <Route exact path="/"><Home /></Route>
               <Route path="/movies/"><Movies /></Route>
             </Switch>
           </SuspenseContainer>
-        </Layout>
+        </SideMenuLayout>
       </ReactQueryCacheProvider>
     </Router>
   );

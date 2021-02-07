@@ -6,6 +6,7 @@ import './assets/main.css';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
+console.log(process.env.NODE_ENV)
 if (process.env.NODE_ENV === "development") {
   makeServer({ environment: "development" })
 }
