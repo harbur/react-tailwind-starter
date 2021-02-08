@@ -23,6 +23,7 @@
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-error-boundary": "^2.2.3",
+    "react-icons": "^4.2.0",
     "react-query": "^2.26.3",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
@@ -76,6 +77,9 @@
     "jest-html-reporter": "^3.3.0"
   },
   "jest": {
-    "coverageReporters": ["json", "html"]
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
   }
 }

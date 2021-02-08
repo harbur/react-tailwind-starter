@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { MdLocalMovies } from 'react-icons/md';
+import { MdHome } from 'react-icons/md';
 
 interface SideMenuLayoutProps { children: any }
 export default function SideMenuLayout({ children }: SideMenuLayoutProps) {
@@ -17,18 +19,18 @@ export default function SideMenuLayout({ children }: SideMenuLayoutProps) {
 function Menu() {
   return (
     <nav className="bg-gray-900 w-32 flex flex-col h-full pt-10">
-        <NavButton exact to='/' title="Home" />
-        <NavButton to='/movies/' title="Movies" />
+      <NavButton icon={<MdHome/>} exact to='/' title="Home" />
+      <NavButton icon={<MdLocalMovies/>} to='/movies/' title="Movies" />
     </nav>
   )
 }
 
 // navigation button on menu
-interface NavButtonProps { to: string, title: string, exact?: boolean }
-function NavButton({ exact = false, to, title }: NavButtonProps) {
-  return <NavLink exact={exact} to={to} className="
-  px-6 py-0.5 rounded-md text-sm font-medium text-gray-300
-  hover:text-white hover:bg-gray-700
-  focus:outline-none focus:text-white focus:bg-gray-700
-">{title}</NavLink>
+interface NavButtonProps { to: string, title: string, exact?: boolean, icon?: any}
+function NavButton({ exact = false, to, title, icon }: NavButtonProps) {
+  return <NavLink activeClassName="bg-gray-800" exact={exact} to={to} className="
+  my-0.5 mx-2 px-3 py-0.5 rounded-md text-sm font-medium text-gray-300
+  hover:text-white hover:bg-gray-800 flex items-center
+  focus:outline-none focus:text-white focus:bg-gray-800 space-x-1
+">{icon}<span>{title}</span></NavLink>
 }
