@@ -9,7 +9,7 @@ export default function SideMenuLayout({ children }: SideMenuLayoutProps) {
   const [value, setValue] = useLocalStorage('sidemenu.size', 200);
   return (
     <div className="flex h-screen">
-      <SplitPane onDragFinished={setValue} split="vertical" minSize={120} defaultSize={value} maxSize={200}>
+      <SplitPane onDragFinished={setValue} split="vertical" minSize={120} defaultSize={value} maxSize={400}>
         <Menu />
         <div className="p-4">
           {children}
