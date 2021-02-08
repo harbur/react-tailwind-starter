@@ -1,14 +1,15 @@
 import React from 'react';
+import { MdHome, MdLocalMovies } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
-import { MdLocalMovies } from 'react-icons/md';
-import { MdHome } from 'react-icons/md';
 import SplitPane from 'react-split-pane';
+import { useLocalStorage } from 'react-use';
 
 interface SideMenuLayoutProps { children: any }
 export default function SideMenuLayout({ children }: SideMenuLayoutProps) {
+  const [value, setValue] = useLocalStorage('sidemenu.size', 200);
   return (
     <div className="flex h-screen">
-      <SplitPane split="vertical" minSize={120} defaultSize={200} maxSize={200}>
+      <SplitPane onDragFinished={setValue} split="vertical" minSize={120} defaultSize={value} maxSize={200}>
         <Menu />
         <div className="p-4">
           {children}
