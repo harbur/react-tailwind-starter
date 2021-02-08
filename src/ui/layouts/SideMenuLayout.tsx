@@ -19,8 +19,8 @@ export default function SideMenuLayout({ children }: SideMenuLayoutProps) {
 function Menu() {
   return (
     <nav className="bg-gray-900 w-32 flex flex-col h-full pt-10">
-      <NavButton icon={<MdHome/>} exact to='/' title="Home" />
-      <NavButton icon={<MdLocalMovies/>} to='/movies/' title="Movies" />
+      <NavButton icon={<MdHome className="text-gray-500"/>} exact to='/' title="Home" />
+      <NavButton icon={<MdLocalMovies className="text-gray-500"/>} to='/movies/' title="Movies" />
     </nav>
   )
 }
